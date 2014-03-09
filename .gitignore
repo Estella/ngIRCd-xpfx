@@ -23,3 +23,4 @@ ngircd.dest
 .deps
 *.a
 *.o
+run/

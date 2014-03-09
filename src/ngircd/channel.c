@@ -609,7 +609,7 @@ Channel_IsValidName( const char *Name )
 	if (strlen(Name) <= 1)
 		return false;
 #endif
-	if (strchr("#&+", Name[0]) == NULL)
+	if (strchr("#&+%$'~", Name[0]) == NULL)
 		return false;
 	if (strlen(Name) >= CHANNEL_NAME_LEN)
 		return false;

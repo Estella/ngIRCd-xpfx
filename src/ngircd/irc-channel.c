@@ -167,7 +167,10 @@ join_set_channelmodes(CHANNEL *chan, CLIENT *target, const char *flags)
 	 * make client chanop, if not disabled in configuration. */
 	if (Channel_HasMode(chan, 'P') && Conf_OperChanPAutoOp
 	    && Client_HasMode(target, 'o'))
-		Channel_UserModeAdd(chan, target, 'o');
+		Channel_UserModeAdd(chan, target, 'q');
+	//if (Channel_HasMode(chan, 'P') && Conf_OperChanPAutoOp
+	//    && Client_HasMode(target, 'o'))
+	//	Channel_UserModeAdd(chan, target, 'q');
 } /* join_set_channelmodes */
 
 /**
@@ -377,7 +380,7 @@ IRC_JOIN( CLIENT *Client, REQUEST *Req )
 				/* New channel: first user will become channel
 				 * operator unless this is a modeless channel */
 				if (*channame != '+')
-					flags = "o";
+					flags = "qo";
 			}
 
 			/* Local client: update idle time */
@@ -401,7 +404,6 @@ IRC_JOIN( CLIENT *Client, REQUEST *Req )
 			chan = Channel_Search(channame);
 			assert(chan != NULL);
 			if (Channel_IsModeless(chan)) {
-				Channel_ModeAdd(chan, 't'); /* /TOPIC not allowed */
 				Channel_ModeAdd(chan, 'n'); /* no external msgs */
 			}
 		}

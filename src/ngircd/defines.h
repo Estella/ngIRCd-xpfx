@@ -179,7 +179,7 @@
 #define CHANMODES "abehiIklmMnoOPqQrRstvVz"
 
 /** Supported channel types. */
-#define CHANTYPES "#&+"
+#define CHANTYPES "#&+%$'~"
 
 /** Away message for users connected to linked servers. */
 #define DEFAULT_AWAY_MSG "Away"
@@ -197,10 +197,10 @@
 /* Defaults and limits for IRC commands */
 
 /** Max. number of elemets allowed in channel invite and ban lists. */
-#define MAX_HNDL_CHANNEL_LISTS 50
+#define MAX_HNDL_CHANNEL_LISTS 500
 
 /** Max. number of channel modes with arguments per MODE command. */
-#define MAX_HNDL_MODES_ARG 5
+#define MAX_HNDL_MODES_ARG 20
 
 /** Max. number of WHO replies. */
 #define MAX_RPL_WHO 25
